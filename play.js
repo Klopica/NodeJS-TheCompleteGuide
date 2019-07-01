@@ -1,29 +1,16 @@
-const name = 'Klop'
-let age = 35
-const hasHobbies = true
-
-// function summarizeUser(userName, userAge, userHasHobby) {
-//   return 'Name is ' +
-//   userName +
-//   ', age is ' + userAge +
-//   ' and the user has hobbies ' + userHasHobby
-// }
-
-const summarizeUser = (userName, userAge, userHasHobby) => {
-  return 'Name is ' +
-  userName +
-  ', age is ' + userAge +
-  ' and the user has hobbies ' + userHasHobby
+const person = {
+  name: 'Klop',
+  age: 35,
+  hasHobbies: true,
+  // greet: () => {
+  //   console.log('Hi, I am ' + this.name)
+  // }
+  greet() {
+    console.log('Hi, I am ', this.name)
+  }
 }
 
-// const add = (a, b) => {
-//   return a + b
-// }
+// This returns "undefined"
+// console.log(person.greet())
 
-const add = (a, b) => a + b
-const addOne = a => a + 1
-const addRandom = () => 1 + 2
-
-console.log(addRandom(1))
-
-console.log(summarizeUser(name, age, hasHobbies))
+person.greet()
