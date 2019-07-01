@@ -1,12 +1,15 @@
 const http = require('http')
 const fs = require('fs')
 
-// Understanding Event Driven Code Execution
-// Node will execute functions asynchronously (it means it does not run function
-// immediatelly)
-// When node is done with parsing and processing request is runs .end event and
-// starts with sending request, when a time for this action comes.
-// It does not pause the other code execution when one of listeners triggers.
+// Single Thread, Event Loop & Blocking Code
+// NodeJS uses only one thread. How it handles multiple requests?
+// PERFORMANCE:
+// fs module works with files and those actions usually take more time.
+// Callback we would define in fileWrite function, would be sent to worker pool,
+// which does all the heavy lifting for us.
+// Worker pool allows us to use different threads!
+// If there are no remaining registered events, we can end nodejs program by calling
+// process.exit()
 
 const server = http.createServer((req, res) => {
   const url = req.url
@@ -32,10 +35,10 @@ const server = http.createServer((req, res) => {
   if(url === '/message' && method === 'POST') {
     const body = []
     // .on() allows us to listen to certain events
-    req.on('data', (chunk) => {
+    req.on('data', chunk => {
       body.push(chunk)
     })
-    req.on('end', () => {
+    return req.on('end', () => {
       const parsedBody = Buffer.concat(body).toString()
       const message = parsedBody.split('=')[1]
       fs.writeFile('message.txt', message, (err) => {
