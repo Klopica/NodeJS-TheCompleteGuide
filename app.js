@@ -12,7 +12,6 @@ const server = http.createServer((req, res) => {
   const url = req.url
   const method = req.method
   if (url === '/') {
-
     res.write(`
       <html>
         <head>
@@ -31,31 +30,32 @@ const server = http.createServer((req, res) => {
   }
 
   if(url === '/message' && method === 'POST') {
-
     const body = []
     // .on() allows us to listen to certain events
     req.on('data', (chunk) => {
       body.push(chunk)
     })
-
     req.on('end', () => {
       const parsedBody = Buffer.concat(body).toString()
       const message = parsedBody.split('=')[1]
-      fs.writeFileSync('message.txt', message)
-      res.statusCode = 302
-      // Redirect user to home page and create a new file that will store message
-      // the user entered in our input field
-      res.setHeader('Location', '/')
-      return res.end()
+      fs.writeFile('message.txt', message, (err) => {
+        if(err) {
+          console.log(err)
+        }
+        res.statusCode = 302
+        // Redirect user to home page and create a new file that will store message
+        // the user entered in our input field
+        res.setHeader('Location', '/')
+        return res.end()
+      })
     })
-
   }
 
   res.setHeader('Content-Type', 'text/html')
   res.write(`
     <html>
       <head>
-        <title>Web Page</title>
+        <title>Home Page</title>
       </head>
       <body>
         <h1>Hello from my Node.js Server</h1>
