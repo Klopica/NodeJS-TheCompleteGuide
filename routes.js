@@ -23,6 +23,7 @@ const requestHandler = (req, res) => {
   }
 
   if(url === '/message' && method === 'POST') {
+
     const body = []
     // .on() allows us to listen to certain events
     req.on('data', chunk => {
