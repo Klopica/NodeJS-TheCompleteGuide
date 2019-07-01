@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Klopica/NodeJS-TheCompleteGuide/issues"
   },
-  "homepage": "https://github.com/Klopica/NodeJS-TheCompleteGuide#readme"
+  "homepage": "https://github.com/Klopica/NodeJS-TheCompleteGuide#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
 }

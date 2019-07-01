@@ -53,7 +53,7 @@ After writing response content, it is important to call ```res.end()``` function
 Until now, we had to stop our server and start it again every time we made a change in our code.
 Now it is time to start using NPM (Node Package Manager). We will use it to install
 some additional packages that will help use to write code faster and that we do
-not need to worry about stuff like starting and stopping server, but can concentrate
+not need to worry about stuff like starting and stopping server, but can use time for working
 on our business logic.
 
 We will install nodemon for server start/stop functionality.
@@ -69,6 +69,8 @@ to our terminal.
 There are some scripts that are called differently and those are special scripts
 You can run start script by typing ```npm start```
 
+### Installing 3rd Party Packages
+Packages that will be used in this course are: Express, body-parser, nodemon...
 
 ## Using Express.js
 
