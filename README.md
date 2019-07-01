@@ -77,6 +77,32 @@ Use debugger to analyze your code
 
 
 ## Using Express.js
+### Don't reinvent the Wheel!
+We need to focus on our business logic, instead of dealing with setting up server,
+so we need a tool that will do that for us. In this course we will use Express.js
+to build server. Express will handle standard tasks like handling requests, Routes and such...
+
+What is Express.js?
+Using Middleware
+Working with Requests and Responses
+Routing
+Returning HTML pages
+
+### What is Express.js?
+Server logic is complex! We would manually need to process all the things as handle buffers,
+parsing data...
+
+Use a framework for all the heavy lifting!
+Vanilla Node.js
+Adonis.js
+Koa
+Sails.js
+...
+
+Express.js is by far the most popular framework.
+
+### Installing Express.js
+```npm install --save express```
 
 ## Templating Engines
 
