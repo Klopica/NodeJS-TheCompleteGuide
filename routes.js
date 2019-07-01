@@ -9,7 +9,9 @@ const fs = require('fs')
 // If we remove a letter from "const" keyword, our application will crash and
 // node will tell us on which line the application crashed
 
-
+// Dealing with Runtime Errors
+// As with syntax errors, the error stack will be thrown in our terminal, so we
+// need to read this stack and try to investigate where the problem lies
 
 const requestHandler = (req, res) => {
 
