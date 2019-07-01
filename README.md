@@ -49,6 +49,26 @@ When creating response in nodejs server, we need to set headers, content and sen
 After writing response content, it is important to call ```res.end()``` function.
 
 ## Efficient Development
+### Understanding NPM scrpts
+Until now, we had to stop our server and start it again every time we made a change in our code.
+Now it is time to start using NPM (Node Package Manager). We will use it to install
+some additional packages that will help use to write code faster and that we do
+not need to worry about stuff like starting and stopping server, but can concentrate
+on our business logic.
+
+We will install nodemon for server start/stop functionality.
+
+All of our 3rd party modules will be visible in package.json file that will be
+automatically created when we run ```npm install <package>``` command
+
+NPM can be used to initialize or pack a node js project.
+
+We can add new scripts to package.json file, that we can run by typing ```npm run <script>```
+to our terminal.
+
+There are some scripts that are called differently and those are special scripts
+You can run start script by typing ```npm start```
+
 
 ## Using Express.js
 
