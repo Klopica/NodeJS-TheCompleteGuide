@@ -13,6 +13,9 @@ const fs = require('fs')
 // As with syntax errors, the error stack will be thrown in our terminal, so we
 // need to read this stack and try to investigate where the problem lies
 
+// Logical Errors
+//
+
 const requestHandler = (req, res) => {
 
   const url = req.url
@@ -44,6 +47,7 @@ const requestHandler = (req, res) => {
     })
     return req.on('end', () => {
       const parsedBody = Buffer.concat(body).toString()
+      console.log(body)
       const message = parsedBody.split('=')[1]
       fs.writeFile('message.txt', message, (err) => {
         if(err) {

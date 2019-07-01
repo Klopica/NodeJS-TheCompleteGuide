@@ -72,6 +72,10 @@ You can run start script by typing ```npm start```
 ### Installing 3rd Party Packages
 Packages that will be used in this course are: Express, body-parser, nodemon...
 
+### Debugging
+Use debugger to analyze your code
+
+
 ## Using Express.js
 
 ## Templating Engines
