@@ -12,7 +12,7 @@ L - Loop (Wait for new input)
 ## JS Refresher
 
 Objects and Arrays are REFERENCE TYPES. This means that if we create an array
-with `const` keyword, we can still edit this array without violating the restriction
+with ```const``` keyword, we can still edit this array without violating the restriction
 that constants must not change.
 
 For this part of course, view commits that cover topics from section 1.
@@ -49,7 +49,7 @@ Core Modules we can use to create NodeJS server:
 
 ### Working with Requests & Responses
 When creating response in nodejs server, we need to set headers, content and send response to client.
-After writing response content, it is important to call `res.end()` function.
+After writing response content, it is important to call ```res.end()``` function.
 
 ### Async Code & The Event Loop
 
