@@ -120,8 +120,11 @@ function inside app.use
 
 If there are no more middlewares in line, in that function we do not need to call next().
 
-### Handling different Routes
-
+### Parsing Incoming Requests
+```
+npm install --save body-parser
+```
+Install Body Parser to be able to parse incoming requests
 
 ## Templating Engines
 
