@@ -12,7 +12,8 @@ app.use('/', (req, res, next) => {
   next()
 })
 
-app.use('/product', (req, res, next) => {
+// app.post allows us to filter for "post" requests
+app.post('/product', (req, res, next) => {
   console.log(req.body)
   res.redirect('/')
 })
