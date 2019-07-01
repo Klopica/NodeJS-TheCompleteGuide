@@ -44,14 +44,9 @@ Core Modules we can use to create NodeJS server:
   c. EVENT LOOP
     * Keeps on running as long as there are event listeners registered
 
-
-
-
 ### Working with Requests & Responses
 When creating response in nodejs server, we need to set headers, content and send response to client.
 After writing response content, it is important to call ```res.end()``` function.
-
-### Async Code & The Event Loop
 
 ## Efficient Development
 
