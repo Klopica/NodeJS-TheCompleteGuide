@@ -1,5 +1,16 @@
 const fs = require('fs')
 
+// Understanding different error types
+// Syntax Errors
+// Runtime Errors
+// Logical errors -> No error message, only bad code
+
+// Finding and Fixing Syntax Errors
+// If we remove a letter from "const" keyword, our application will crash and
+// node will tell us on which line the application crashed
+
+
+
 const requestHandler = (req, res) => {
 
   const url = req.url
