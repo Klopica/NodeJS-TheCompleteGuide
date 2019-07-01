@@ -5,10 +5,35 @@ const person = {
     console.log('Hi, I am ', this.name)
   }
 }
-const copied_person = {...person}
-console.log(copied_person)
+// DESTRUCTURING
+// const printName = (personData) => {
+//   console.log(personData.name)
+// }
 
+const printName = ({ name, age }) => {
+  console.log(name)
+  console.log(age)
+}
+
+printName(person)
+
+
+const { name, age } = person
+console.log(name, age)
+
+// const copied_person = {...person}
+// console.log(copied_person)
+//
 const hobbies = ['Sports', 'Cooking']
+const [hobby1, hobby2] = hobbies
+console.log(hobby1)
+console.log(hobby2)
+
+const [test_hobby1, test_hobby2] = hobbies
+console.log(test_hobby1)
+console.log(test_hobby2)
+
+
 // for (let hobby of hobbies) {
 //   console.log(hobby)
 // }
@@ -28,17 +53,17 @@ const hobbies = ['Sports', 'Cooking']
 // but mutate copies of values plus the changes
 
 // const copied_array = hobbies.slice()
-const copied_array = [...hobbies] // Array copied with spread operator
-console.log(copied_array)
+// const copied_array = [...hobbies] // Array copied with spread operator
+// console.log(copied_array)
 
 // The REST operator
 // const toArray = (arg1, arg2, arg3) => {
 //   return [arg1, arg2, arg3]
 // }
 
-const toArray = (...args) => {
-  return args
-}
-console.log(toArray(1, 2, 3))
-// If we call the same function with fourth argument, nothing changes. We still see output with 3 args
-console.log(toArray(1, 2, 3, 4))
+// const toArray = (...args) => {
+//   return args
+// }
+// console.log(toArray(1, 2, 3))
+// // If we call the same function with fourth argument, nothing changes. We still see output with 3 args
+// console.log(toArray(1, 2, 3, 4))
