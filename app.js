@@ -1,12 +1,12 @@
 const http = require('http')
 const fs = require('fs')
 
-// Streams & Buffers
-// If file is being uploaded, then streaming data makes sense
-// It is not neccessary to process whole file when it's uploaded, insted we process
-// parts of this stream, using buffer
-// Buffer is construct which allows you to process multiple chunks before they are
-// released
+// Understanding Event Driven Code Execution
+// Node will execute functions asynchronously (it means it does not run function
+// immediatelly)
+// When node is done with parsing and processing request is runs .end event and
+// starts with sending request, when a time for this action comes.
+// It does not pause the other code execution when one of listeners triggers.
 
 const server = http.createServer((req, res) => {
   const url = req.url
@@ -42,12 +42,13 @@ const server = http.createServer((req, res) => {
       const parsedBody = Buffer.concat(body).toString()
       const message = parsedBody.split('=')[1]
       fs.writeFileSync('message.txt', message)
+      res.statusCode = 302
+      // Redirect user to home page and create a new file that will store message
+      // the user entered in our input field
+      res.setHeader('Location', '/')
+      return res.end()
     })
-    // Redirect user to home page and create a new file that will store message
-    // the user entered in our input field
-    res.statusCode = 302
-    res.setHeader('Location', '/')
-    return res.end()
+
   }
 
   res.setHeader('Content-Type', 'text/html')
