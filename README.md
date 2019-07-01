@@ -102,7 +102,17 @@ Sails.js
 Express.js is by far the most popular framework.
 
 ### Installing Express.js
-```npm install --save express```
+```
+npm install --save express
+```
+
+### Adding Middleware
+It's All about Middleware!
+
+  - Request
+  - Middleware -> next() -> (req, res, next) => { ... }
+  - Middleware -> res.send() -> (req, res, next) => { ... }
+  - Response
 
 ## Templating Engines
 
