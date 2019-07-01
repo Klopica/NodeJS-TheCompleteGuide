@@ -114,6 +114,12 @@ It's All about Middleware!
   - Middleware -> res.send() -> (req, res, next) => { ... }
   - Response
 
+### How middleware works
+To be able to call more than one middleware in Express.js, we need to call ``` next() ```
+function inside app.use
+
+If there are no more middlewares in line, in that function we do not need to call next().
+
 ## Templating Engines
 
 ## MVC
