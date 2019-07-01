@@ -37,8 +37,15 @@ Core Modules we can use to create NodeJS server:
   * path
   * os
 
+### NodeJS Program Life Cycle
+1. Execute main script
+  a. Start script
+  b. Parse Code, Register Variables & Functions
+  c. EVENT LOOP
+    * Keeps on running as long as there are event listeners registered
 
-### Using Node Core modules
+  
+
 
 ### Working with Requests & Responses
 
