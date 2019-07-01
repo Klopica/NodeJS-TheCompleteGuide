@@ -3,13 +3,16 @@ Udemy course
 
 ## Intro
 
-REPL 
+REPL
 R - Read user input
 E - Evaluate user input
 P - Print output
-L - Loop (Wait for new input) 
+L - Loop (Wait for new input)
 
 ## JS Refresher
+
+Objects and Arrays are REFERENCE TYPES. This means that if we create an array with `const` keyword, we can still edit this array without violating the
+restriction that constants must not change.
 
 ## Node.JS Basics
 

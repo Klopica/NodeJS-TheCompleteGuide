@@ -14,5 +14,8 @@ const hobbies = ['Sports', 'Cooking']
 // console.log('NEW: ', hobbies.map(hobby => {
 //   return 'Hobby: ' + hobby
 // }))
-console.log('NEW: ', hobbies.map(hobby => 'Hobby: ' + hobby))
-console.log('OLD: ', hobbies)
+// console.log('NEW: ', hobbies.map(hobby => 'Hobby: ' + hobby))
+// console.log('OLD: ', hobbies)
+
+hobbies.push('Programming')
+console.log(hobbies)
