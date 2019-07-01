@@ -1,10 +1,7 @@
 const express = require('express')
-const router = express.Router
+const router = express.Router()
 
-router.post('/product', (req, res, next) => {
-  console.log(req.body)
-  res.redirect('/')
-})
+
 
 router.get('/add-product', (req, res, next) => {
   console.log('In another Middleware - Products page!')
@@ -15,6 +12,11 @@ router.get('/add-product', (req, res, next) => {
       <button type="submit">Submit</button>
     </form>
   `)
+})
+
+router.post('/product', (req, res, next) => {
+  console.log(req.body)
+  res.redirect('/')
 })
 
 module.exports = router
