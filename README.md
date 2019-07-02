@@ -127,6 +127,9 @@ npm install --save body-parser
 Install Body Parser to be able to parse incoming requests
 
 ## Templating Engines
+To build an application that delivers some value to our users, we want to create dynamic
+content. To achieve this, we would want to use some kind of templating engine.
+With templating engines it is much easier to present data from database in html.
 
 ## MVC
 
