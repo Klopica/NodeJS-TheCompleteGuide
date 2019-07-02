@@ -24,7 +24,9 @@ app.use(shopRoutes)
 // Handling 404 Error
 app.use((req, res, next) => {
   res.status(404)
-  .sendFile(path.join(__dirname, 'views', '404.html'))
+  .render('404', {
+    title: 'Error 404'
+  })
 })
 
 const server = http.createServer(app)
