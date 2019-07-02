@@ -25,13 +25,13 @@ module.exports = class Product {
   // class itself, and not on instantiated object (var something = new Product())
   // This means we can call this function without keyword "new"
   // example is in /controllers/products.js
-  static fetchAll () {
+  static fetchAll (callback) {
     const p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json')
     fs.readFile(p, (err, data) => {
       if(err) {
-        return []
+        callback([])
       }
-      return JSON.parse(data)
+      callback(JSON.parse(data))
     })
   }
 }
