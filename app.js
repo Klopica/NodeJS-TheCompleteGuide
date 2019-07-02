@@ -3,14 +3,20 @@ const path = require('path')
 
 const express = require('express')
 const bodyParser = require('body-parser')
+const expressHbs = require('express-handlebars')
 
 const adminData = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 
 const app = express()
 
-// Global configuration
-app.set('view engine', 'pug')
+// Handlebars setup
+app.engine('hbs', expressHbs())
+app.set('view engine', 'hbs')
+
+
+// Global configuration - PUG
+// app.set('view engine', 'pug')
 // second param is a views folder (in some cases you might use some other folder)
 app.set('views', 'views')
 
