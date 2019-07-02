@@ -1,0 +1,27 @@
+const products = []
+
+exports.getAddProduct = (req, res, next) => {
+  res.render('add-product', {
+    title: 'Add Product',
+    path: '/admin/add-product',
+    formsCSS: true,
+    productCSS: true,
+    activeAddProduct: true
+  })
+}
+
+exports.postAddProduct = (req, res, next) => {
+  console.log(req.body)
+  products.push({ title: req.body.title })
+  res.redirect('/')
+}
+
+exports.getProducts = (req, res, next) => {
+  res.render('shop', {
+    prods: products,
+    title: 'Shop',
+    path: 'shop',
+    activeShop: true,
+    productCSS: true
+  })
+}

@@ -139,6 +139,13 @@ Most popular template engines are:
 
 ## MVC
 
+Separation of concerns:
+MODEL: Represents data in code. Works with data (e.g. save, fetch, update)
+VIEW: What the user sees. Decoupled from application code.
+CONTROLLERS: Connecting Models and Views.
+
+Routes define which controller to trigger.
+
 ## Advanced Routes & Models
 
 ## Node + SQL
