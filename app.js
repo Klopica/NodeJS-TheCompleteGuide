@@ -9,6 +9,11 @@ const shopRoutes = require('./routes/shop')
 
 const app = express()
 
+// Global configuration
+app.set('view engine', 'pug')
+// second param is a views folder (in some cases you might use some other folder)
+app.set('views', 'views')
+
 app.use(bodyParser.urlencoded({extended: false}))
 // Middleware for static files
 app.use(express.static(path.join(__dirname, 'public')))

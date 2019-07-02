@@ -131,6 +131,12 @@ To build an application that delivers some value to our users, we want to create
 content. To achieve this, we would want to use some kind of templating engine.
 With templating engines it is much easier to present data from database in html.
 
+Most popular template engines are:
+
+  * EJS
+  * Pug (Jade)
+  * Handlebars
+
 ## MVC
 
 ## Advanced Routes & Models
