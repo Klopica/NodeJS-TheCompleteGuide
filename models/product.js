@@ -1,22 +1,29 @@
 const fs = require('fs')
 const path = require('path')
 
+const p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json')
+
+const getProductsFromFIle = (cb) => {
+  fs.readFile(p, (err, data) => {
+    if(err) {
+      return cb([])
+    } else {
+
+      cb(JSON.parse(data))
+    }
+  })
+}
+
 module.exports = class Product {
   constructor (title) {
     this.title = title
   }
 
   save () {
-    const p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json')
-    // First read this file to get existing data
-    fs.readFile(p, (err, data) => {
-      let products = []
-      if(!err) {
-        products = JSON.parse(data)
-      }
+    getProductsFromFIle(products => {
       products.push(this)
-      fs.writeFile(p, JSON.stringify(products), (err) => {
-        console.log(err)
+      fs.writeFile(p, JSON.stringify(products), err => {
+        console.log(err.stack || err)
       })
     })
   }
@@ -25,13 +32,7 @@ module.exports = class Product {
   // class itself, and not on instantiated object (var something = new Product())
   // This means we can call this function without keyword "new"
   // example is in /controllers/products.js
-  static fetchAll (callback) {
-    const p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json')
-    fs.readFile(p, (err, data) => {
-      if(err) {
-        callback([])
-      }
-      callback(JSON.parse(data))
-    })
+  static fetchAll (cb) {
+    getProductsFromFIle(cb)
   }
 }
