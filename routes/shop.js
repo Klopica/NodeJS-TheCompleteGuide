@@ -1,12 +1,19 @@
-const path = require('path')
-// path.join detects the operating system you are running yor app on, and creates
-// an absolute path fou you
+const path = require('path');
 
-const express = require('express')
-const router = express.Router()
+const express = require('express');
 
-const productsController = require('../controllers/products')
+const shopController = require('../controllers/shop');
 
-router.get('/', productsController.getProducts)
+const router = express.Router();
 
-module.exports = router
+router.get('/', shopController.getIndex);
+
+router.get('/products', shopController.getProducts);
+
+router.get('/cart', shopController.getCart);
+
+router.get('/orders', shopController.getOrders);
+
+router.get('/checkout', shopController.getCheckout);
+
+module.exports = router;

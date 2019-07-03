@@ -1,38 +1,40 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
-const p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json')
+const p = path.join(
+  path.dirname(process.mainModule.filename),
+  'data',
+  'products.json'
+);
 
-const getProductsFromFIle = (cb) => {
-  fs.readFile(p, (err, data) => {
-    if(err) {
-      return cb([])
+const getProductsFromFile = cb => {
+  fs.readFile(p, (err, fileContent) => {
+    if (err) {
+      cb([]);
     } else {
-
-      cb(JSON.parse(data))
+      cb(JSON.parse(fileContent));
     }
-  })
-}
+  });
+};
 
 module.exports = class Product {
-  constructor (title) {
-    this.title = title
+  constructor(title, imageUrl, description, price) {
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.description = description;
+    this.price = price;
   }
 
-  save () {
-    getProductsFromFIle(products => {
-      products.push(this)
+  save() {
+    getProductsFromFile(products => {
+      products.push(this);
       fs.writeFile(p, JSON.stringify(products), err => {
-        console.log(err.stack || err)
-      })
-    })
+        console.log(err);
+      });
+    });
   }
 
-  // STATIC keyword makes sure that this method can be called directly on the
-  // class itself, and not on instantiated object (var something = new Product())
-  // This means we can call this function without keyword "new"
-  // example is in /controllers/products.js
-  static fetchAll (cb) {
-    getProductsFromFIle(cb)
+  static fetchAll(cb) {
+    getProductsFromFile(cb);
   }
-}
+};
